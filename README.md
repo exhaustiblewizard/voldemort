@@ -7,6 +7,8 @@ https://x.com/wzrdoo/status/2107195579759481338 this is the second part of the n
 this emu cannot decrypt / dump your games, you still need to own a ps5 to run both the shell and the game
 for the js bundle stuff: https://github.com/zecoxao/decrypt_rnps
 
+Ctrl + Shift is the keybind for emulating a disc, select app's app0 (both ps4 and ps5 supported)
+
 warning danger contains alot of vibecoded slop that originated from me feeding sony's pseudocode to AI 
 # KytyPS5
 
