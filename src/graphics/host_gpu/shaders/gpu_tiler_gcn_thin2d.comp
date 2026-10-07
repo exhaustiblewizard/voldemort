@@ -1,0 +1,20 @@
+#version 450
+#extension GL_GOOGLE_include_directive : require
+layout(constant_id = 0) const uint ELEMENT_BYTES = 4u;
+layout(constant_id = 1) const uint TILE = 0u;
+const uint BLOCK_BYTES = 32768u;
+uvec3 block_extent() { return uvec3(128u, 64u, 1u); }
+uint b(uint v, uint i) { return (v >> i) & 1u; }
+uint block_offset(uvec3 p) {
+    uint x = p.x, y = p.y;
+    uint pixel = b(x,0) | (b(y,0) << 1) | (b(x,1) << 2) |
+                 (b(y,1) << 3) | (b(x,2) << 4) | (b(y,2) << 5);
+    uint pipe = (b(x,3) ^ b(y,3) ^ b(x,4)) |
+                ((b(x,4) ^ b(y,4)) << 1) | ((b(x,5) ^ b(y,5)) << 2);
+    uint tx = x >> 6, ty = y >> 3;
+    uint bank = (b(tx,0) ^ b(ty,3)) | ((b(tx,1) ^ b(ty,2) ^ b(ty,3)) << 1) |
+                ((b(tx,2) ^ b(ty,1)) << 2) | ((b(tx,3) ^ b(ty,0)) << 3);
+    bank ^= (7u * p.z) & 15u;
+    return pixel * 4u | (pipe << 8) | (bank << 11);
+}
+#include "gpu_tiler_common.inc"
