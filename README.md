@@ -10,6 +10,10 @@ for the js bundle stuff: https://github.com/zecoxao/decrypt_rnps
 Ctrl + Shift is the keybind for emulating a disc, select app's app0 (both ps4 and ps5 supported)
 
 warning danger contains alot of vibecoded slop that originated from me feeding sony's pseudocode to AI 
+
+<img width="2559" height="1351" alt="image" src="https://github.com/user-attachments/assets/1e32648e-0d07-4f50-95bc-9c8e44648275" />
+
+
 # KytyPS5
 
 [![Build KytyPS5 (Windows)](https://img.shields.io/github/actions/workflow/status/KytyPS5/KytyPS5/build.yml?branch=main&event=push&label=Build%20KytyPS5%20%28Windows%29)](https://github.com/KytyPS5/KytyPS5/actions/workflows/build.yml)
